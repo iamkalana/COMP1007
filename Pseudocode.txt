@@ -1,0 +1,652 @@
+CLASS Date
+ CLASS FIELDS:
+   dayOfMonth(Integer)
+   monthOfYear(Integer)
+   year(Integer)
+ 
+ CONSTRUCTORS WITH PARAMETERS
+
+  IMPORT: pDayOfMonth(Integer), pMonthOfYear(Integer), pYear(Integer)
+  EXPORT: none
+  ASSERTION: creating objects with imported values
+  ALGORITHM: 
+             IF pDayOfMonth < 32 THEN
+              pDayOfMonth = dayOfMonth
+
+             IF pMonthOfYear < 13 AND pMonthOfYear > 0 THEN
+              pMonthOfYear = monthOfYear
+
+             IF pYear IS EQUAL TO 2020 OR 2021 THEN
+              pYear = year
+
+ COPY CONSTRUCTOR
+
+  IMPORT: pDate(Date)
+  EXPORT: none
+  ASSERTION: creating copy of imported object values
+  ALGORITHM: 
+             dayOfMonth = pDate.getDayOfMonth() 
+             monthOfYear = pDate.getMonthOfYear()
+             year = pDate.getYear()
+
+ DEFAULT CONSTRUCTOR
+
+  IMPORT: none
+  EXPORT: none
+  ASSERTION: creating objects with default values
+  ALGORITHM: 
+             dayOfMonth = 1
+             monthOfYear = 1
+             year = 2020
+
+ ACCESSORS
+
+  ACCESSOR: getDayOfMonth
+  IMPORT: none
+  EXPORT: dayOfMonth(Integer)
+  ASSERTION: returned the dayOfMonth
+  ALGORITHM: 
+             RETURN COPY OF dayOfMonth
+
+  ACCESSOR: getMonthOfYear
+  IMPORT: none
+  EXPORT: monthOfYear(Integer)
+  ASSERTION: returned the monthOfYear
+  ALGORITHM: 
+             RETURN COPY OF monthOfYear
+
+  ACCESSOR: getYear
+  IMPORT: none
+  EXPORT: year(Integer)
+  ASSERTION: returned the year
+  ALGORITHM: 
+             RETURN COPY OF year
+
+  ACCESSOR: toString
+  IMPORT: none
+  EXPORT:dateString (String)
+  ASSERTION:String representation of values in the object
+  ALGORITHM:
+		dateString = “ Day = “ + dayOfMonth + “ Month = “ + monthOfYear + “ Year = “ + year
+
+
+ MUTATORS
+
+  MUTATOR:setDayOfMonth
+  IMPORT: pDayOfMonth(Integer)
+  EXPORT: none
+  ASSERTION: state of dayOfMonth is updated to pDayOfMonth value
+  ALGORITHM: 
+             dayOfMonth = pDayOfMonth
+
+  MUTATOR:setMonthOfYear
+  IMPORT: pMonthOfYear(Integer)
+  EXPORT: none
+  ASSERTION: state of monthOfYear is updated to pMonthOfYear value
+  ALGORITHM: 
+             monthOfYear = pMonthOfYear
+
+  MUTATOR:setYear
+  IMPORT: pYear(Integer)
+  EXPORT: none
+  ASSERTION: state of year is updated to pYear value
+  ALGORITHM: 
+             year = pYear
+
+
+
+
+
+CLASS CovidCase
+ CLASS FIELDS:
+   country(String)
+   province(String)
+   region(String)
+   ageGroup(String)
+   sex(String)
+   cases(Integer)
+ 
+ CONSTRUCTORS WITH PARAMETERS
+
+  IMPORT: pCountry(String), pProvince(String), pRegion(String), pAgeGroup(String), pSex(String), pCases(Integer)
+  EXPORT: none
+  ASSERTION: creating objects with imported values
+  ALGORITHM: 
+             pCountry = country
+             pProvince = province
+             pRegion = region
+
+           IF pAgeGroup IS NOT EMPTY THEN
+             pAgeGroup = ageGroup
+
+           IF pSex EQUAL TO "M" OR "F" OR "NA" THEN
+             pSex = sex
+
+           IF pCases GREATER THAN 0 THEN
+             pCases = cases
+
+
+ COPY CONSTRUCTOR
+
+  IMPORT: pCovidCase(CovidCase)
+  EXPORT: none
+  ASSERTION: creating copy of imported object values
+  ALGORITHM: 
+               country = pCovidCase.getCountry()
+               province = pCovidCase.getProvince()
+               region = pCovidCase.getRegion()
+               ageGroup = pCovidCase.getAgeGroup()
+               sex = pCovidCase.getSex()
+               cases = pCovidCase.getCases()
+
+ DEFAULT CONSTRUCTOR
+
+  IMPORT: none
+  EXPORT: none
+  ASSERTION: creating objects with default values
+  ALGORITHM: 
+             country = "Default"
+             province = "Default"
+             region = "Default"
+             ageGroup = "Default"
+             sex = "Default"
+             cases = 0
+
+
+ ACCESSORS
+
+  ACCESSOR: getCountry
+  IMPORT: none
+  EXPORT: country(String)
+  ASSERTION: returned the country
+  ALGORITHM: 
+             RETURN COPY OF country
+
+  ACCESSOR: getProvince
+  IMPORT: none
+  EXPORT: province(String)
+  ASSERTION: returned the province
+  ALGORITHM: 
+             RETURN COPY OF province
+
+  ACCESSOR: getRegion
+  IMPORT: none
+  EXPORT: region(String)
+  ASSERTION: returned the region
+  ALGORITHM: 
+             RETURN COPY OF region
+
+  ACCESSOR: getAgeGroup
+  IMPORT: none
+  EXPORT: ageGroup(String)
+  ASSERTION: returned the ageGroup
+  ALGORITHM: 
+             RETURN COPY OF ageGroup
+
+  ACCESSOR: getSex
+  IMPORT: none
+  EXPORT: sex(String)
+  ASSERTION: returned the sex
+  ALGORITHM: 
+             RETURN COPY OF sex
+
+  ACCESSOR: getCases
+  IMPORT: none
+  EXPORT: cases(Integer)
+  ASSERTION: returned the cases
+  ALGORITHM: 
+             RETURN COPY OF cases
+
+
+
+
+  ACCESSOR: toString
+  IMPORT: none
+  EXPORT:covidCaseString (String)
+  ASSERTION:String representation of values in the object
+  ALGORITHM:
+		covidCaseString = "Country = " + country + " Province = " + province + " Region = " + region +
+                          " Age Group = " + ageGroup + " Sex = " + sex + " Cases = " + cases
+
+
+ MUTATORS
+
+  MUTATOR:setCountry
+  IMPORT: pCountry(String)
+  EXPORT: none
+  ASSERTION: state of country is updated to pCountry value
+  ALGORITHM: 
+             country = pCountry
+
+  MUTATOR:setProvince
+  IMPORT: pProvince(String)
+  EXPORT: none
+  ASSERTION: state of province is updated to pProvince value
+  ALGORITHM: 
+             province = pProvince
+
+  MUTATOR:setRegion
+  IMPORT: pRegion(String)
+  EXPORT: none
+  ASSERTION: state of region is updated to pRegion value
+  ALGORITHM: 
+             region = pRegion
+
+  
+  MUTATOR:setAgeGroup
+  IMPORT: pAgeGroup(String)
+  EXPORT: none
+  ASSERTION: state of ageGroup is updated to pAgeGroup value
+  ALGORITHM: 
+             ageGroup = pAgeGroup
+
+  MUTATOR:setSex
+  IMPORT: pSex(String)
+  EXPORT: none
+  ASSERTION: state of sex is updated to pSex value
+  ALGORITHM: 
+             sex = pSex
+
+  MUTATOR:setCases
+  IMPORT: pCases(Integer)
+  EXPORT: none
+  ASSERTION: state of cases is updated to pCases value
+  ALGORITHM: 
+             cases = pCases
+
+
+
+
+METHOD: readFile
+IMPORT: COVID19BE_CASES.csv (String)
+EXPORT: none
+ALGORITHM:
+  TRY
+     theFile = OPENFILE COVID19BE_CASES.csv 
+	 lineNum = 0
+	 READ line FROM theFile
+	  WHILE NOT (theFile = EOF)
+        
+        splitArray = SPLIT line BY ","
+
+        CREATE TWO OBJECT ARRAYS AND PASS splitArray VALUES TO CLASS CONSTRUCTORS
+        dateArray = GET FIRST THREE INDEXES OF splitArray
+        covidCaseArray = GET OTHER INDEXES OF splitArray
+	 
+	    lineNum = lineNum + 1
+		
+		READline FROM theFile
+	  ENDWHILE
+     CLOSEFILE theFile
+
+  CATCH
+     IF ERROR WHILE FILE PROCESSING
+     PRINT "Error while file processing: " + ERROR MESSAGE
+
+END readFile
+
+
+METHOD: mainMenu
+IMPORT: NONE
+EXPORT: NONE
+ALGORITHM:
+           PRINT "Welcome to the COVID-19 Data Analysis Program."
+           PRINT "Main menu"
+   
+           DO
+             PRINT " > 1. Statistics of entire nation"
+             PRINT " > 2. Statistics or regions"
+             PRINT " > 3. Exit"
+
+             GET user input
+
+             CASE user input
+              case 1 CALL optionOne METHOD
+              case 2 CALL optionTwo METHOD
+              case 3 EXIT FROM THE PROGRAM
+              ELSE PRINT "Input is not valid"
+           WHILE user input is NOT equal to 3
+
+
+
+METHOD: optionOne
+IMPORT: NONE
+EXPORT: NONE
+ALGORITHM:
+         DO
+           PRINT "> 1. Display the total number of COVID-19 cases."
+           PRINT "> 2. Display the number of COVID-19 cases: Males."
+           PRINT "> 3. Display the number of COVID-19 cases: Females."
+           PRINT "> 4. Display the number of COVID-19 cases: 0-9 age group."
+           PRINT "> 5. Display the number of COVID-19 cases: 10-19 age group."
+           PRINT "> 6. Display the number of COVID-19 cases: 20-29 age group."
+           PRINT "> 7. Display the number of COVID-19 cases: 30-39 age group."
+           PRINT "> 8. Display the number of COVID-19 cases: 40-49 age group."
+           PRINT "> 9. Display the number of COVID-19 cases: 50-59 age group."
+           PRINT "> 10. Display the number of COVID-19 cases: 60-69 age group."
+           PRINT "> 11. Display the number of COVID-19 cases: 70-79 age group."
+           PRINT "> 12. Display the number of COVID-19 cases: 80-89 age group."
+           PRINT "> 13. Display the number of COVID-19 cases: 90+ age group."
+  
+           GET user input
+           count = 0
+           
+           CASE
+            case 1 
+                   FOR k = 0 TO n INC BY 1
+                    count = count + covidCaseArray[k].getCases
+                   END FOR
+
+                PRINT "Total number of COVID-19 cases: " + count
+            case 2
+                   FOR k = 0 TO n INC BY 1
+                    IF covidCaseArray[k].getSex EQUAL TO "M"
+                    count = count + covidCaseArray[k].getCases
+                   END FOR
+
+                PRINT "Total number of male cases: " + count
+            case 3
+                   FOR k = 0 TO n INC BY 1
+                    IF covidCaseArray[k].getSex EQUAL TO "F"
+                    count = count + covidCaseArray[k].getCases
+                   END FOR
+
+                PRINT "Total number of female cases: " + count
+            case 4
+                   FOR k = 0 TO n INC BY 1
+                    IF covidCaseArray[k].getAgeGroup EQUAL TO "0-9"
+                    count = count + covidCaseArray[k].getCases
+                   END FOR
+
+                PRINT "Total number of 0-9 cases: " + count
+            case 5
+                   FOR k = 0 TO n INC BY 1
+                    IF covidCaseArray[k].getAgeGroup EQUAL TO "10-19"
+                    count = count + covidCaseArray[k].getCases
+                   END FOR
+
+                PRINT "Total number of 10-19 cases: " + count
+            case 6
+                   FOR k = 0 TO n INC BY 1
+                    IF covidCaseArray[k].getAgeGroup EQUAL TO "20-29"
+                    count = count + covidCaseArray[k].getCases
+                   END FOR
+
+                PRINT "Total number of 20-29 cases: " + count
+            case 7
+                   FOR k = 0 TO n INC BY 1
+                    IF covidCaseArray[k].getAgeGroup EQUAL TO "30-39"
+                    count = count + covidCaseArray[k].getCases
+                   END FOR
+
+                PRINT "Total number of 30-39 cases: " + count
+            case 8
+                   FOR k = 0 TO n INC BY 1
+                    IF covidCaseArray[k].getAgeGroup EQUAL TO "40-49"
+                    count = count + covidCaseArray[k].getCases
+                   END FOR
+
+                PRINT "Total number of 40-49 cases: " + count
+            case 9
+                   FOR k = 0 TO n INC BY 1
+                    IF covidCaseArray[k].getAgeGroup EQUAL TO "50-59"
+                    count = count + covidCaseArray[k].getCases
+                   END FOR
+
+                PRINT "Total number of 50-59 cases: " + count
+            case 10
+                   FOR k = 0 TO n INC BY 1
+                    IF covidCaseArray[k].getAgeGroup EQUAL TO "60-69"
+                    count = count + covidCaseArray[k].getCases
+                   END FOR
+
+                PRINT "Total number of 60-69 cases: " + count
+            case 11
+                   FOR k = 0 TO n INC BY 1
+                    IF covidCaseArray[k].getAgeGroup EQUAL TO "70-79"
+                    count = count + covidCaseArray[k].getCases
+                   END FOR
+
+                PRINT "Total number of 70-79 cases: " + count
+            case 12
+                   FOR k = 0 TO n INC BY 1
+                    IF covidCaseArray[k].getAgeGroup EQUAL TO "80-89"
+                    count = count + covidCaseArray[k].getCases
+                   END FOR
+
+                PRINT "Total number of 80-89 cases: " + count
+            case 13
+                   FOR k = 0 TO n INC BY 1
+                    IF covidCaseArray[k].getAgeGroup EQUAL TO "90+"
+                    count = count + covidCaseArray[k].getCases
+                   END FOR
+
+                PRINT "Total number of 90+ cases: " + count
+            ELSE PRINT "Input is not valid...Try Again"
+       
+       WHILE user input IS NOT EQUAL TO 1 TO 13
+
+  DO
+    PRINT "Would you like to make another selection (Y or N)? "
+    GET user input AS A UPPERCASE LETTER
+
+     IF user input IS EQUAL TO Y
+        CALL optionOne METHOD
+     ELSE IF
+        PRINT "You are returning to main menu... "
+     ELSE
+        PRINT "Input is not valid try again"
+
+  WHILE user input is NOT EQUAL TO "Y" OR "N"
+
+
+
+
+        
+METHOD: optionTwo
+IMPORT: NONE
+EXPORT: NONE
+ALGORITHM:
+          DO
+            PRINT ">1. Flanders"
+            PRINT ">2. Brussels"
+            PRINT ">3. Wallonia"
+            PRINT ">4. Unknown"
+
+           GET user input
+           count = 0
+    
+           CASE
+             case 1
+                 CALL regionData("Flanders")
+             case 2
+                 CALL regionData("Brussels")
+             case 3
+                 CALL regionData("Wallonia")
+             case 4
+                 CALL naCases()
+             ELSE
+                 PRINT ("Your input is not valid. Please try again...")
+
+          WHILE user input IS NOT EQUAL TO 1 TO 4
+          
+          DO
+          PRINT "Would you like to make another selection (Y or N)? "
+          GET user input AS A UPPERCASE LETTER
+
+          IF user input IS EQUAL TO Y
+          CALL optionTwo METHOD
+          ELSE IF
+          PRINT "You are returning to main menu... "
+          ELSE
+          PRINT "Input is not valid try again"
+
+          WHILE user input is NOT EQUAL TO "Y" OR "N"
+
+
+METHOD: regionData
+IMPORT: pRegion
+EXPORT: NONE
+ALGORITHM:
+        PRINT "Total number COVID-19 cases for " + pRegion + " is:" + rCases("CASES", pRegion)
+        PRINT "Total number COVID-19 male cases for " + pRegion + " is:" + rCases("M", pRegion)
+        PRINT "Total number COVID-19 female cases for " + pRegion + " is:" + rCases("F", pRegion)
+        PRINT "Total number COVID-19 cases in 0-9 age group for " + pRegion + " is:" + rCases("0-9", pRegion)
+        PRINT "Total number COVID-19 cases in 10-19 age group for " + pRegion + " is:" + rCases("10-19", pRegion)
+        PRINT "Total number COVID-19 cases in 20-29 age group for " + pRegion + " is:" + rCases("20-29", pRegion)
+        PRINT "Total number COVID-19 cases in 30-39 age group for " + pRegion + " is:" + rCases("30-39", pRegion)
+        PRINT "Total number COVID-19 cases in 40-49 age group for " + pRegion + " is:" + rCases("40-49", pRegion)
+        PRINT "Total number COVID-19 cases in 50-59 age group for " + pRegion + " is:" + rCases("50-59", pRegion)
+        PRINT "Total number COVID-19 cases in 60-69 age group for " + pRegion + " is:" + rCases("60-69", pRegion)
+        PRINT "Total number COVID-19 cases in 70-79 age group for " + pRegion + " is:" + rCases("70-79", pRegion)
+        PRINT "Total number COVID-19 cases in 80-89 age group for " + pRegion + " is:" + rCases("80-89", pRegion)
+        PRINT "Total number COVID-19 cases in 90+ age group for " + pRegion + " is:" + rCases("90+", pRegion)
+
+        DO
+          PRINT "Would you like to make another selection (Y or N)? "
+          GET user input AS A UPPERCASE LETTER
+
+          IF user input IS EQUAL TO Y
+          CALL optionTwo METHOD
+          ELSE IF
+          PRINT "You are returning to main menu... "
+          ELSE
+          PRINT "Input is not valid try again"
+
+        WHILE user input is NOT EQUAL TO "Y" OR "N"
+
+
+
+
+METHOD: rCases
+IMPORT: pOption, pRegion
+EXPORT: count
+ALGORITHM:
+          count = 0
+          FOR k = 0 TO n INC BY 1
+            region = covidCaseArray[k].getRegion()
+            sex = covidCaseArray[k].getSex()
+            age = covidCaseArray[k].getAgeGroup()
+            cases = covidCaseArray[k].getCases()
+
+            IF region EQUALS TO pRegion
+             CASE
+                case "CASES"
+                   count = count + cases
+                case "M"
+                   IF sex EQUALS TO "M"
+                     count = count + cases
+                   END IF
+                case "F"
+                   IF sex EQUALS TO "M"
+                     count = count + cases
+                   END IF
+                case "0-9"
+                   IF age EQUALS TO "0-9"
+                     count = count + cases
+                   END IF
+                case "10-19"
+                   IF age EQUALS TO "10-19"
+                     count = count + cases
+                   END IF
+                case "20-29"
+                   IF age EQUALS TO "20-29"
+                     count = count + cases
+                   END IF
+                case "30-39"
+                   IF age EQUALS TO "30-39"
+                     count = count + cases
+                   END IF
+                case "40-49"
+                   IF age EQUALS TO "40-49"
+                     count = count + cases
+                   END IF
+                case "50-59"
+                   IF age EQUALS TO "50-59"
+                     count = count + cases
+                   END IF
+                case "60-69"
+                   IF age EQUALS TO "60-69"
+                     count = count + cases
+                   END IF
+                case "70-79"
+                   IF age EQUALS TO "70-79"
+                     count = count + cases
+                   END IF
+                case "80-89"
+                   IF age EQUALS TO "80-89"
+                     count = count + cases
+                   END IF
+                case "90+"
+                   IF age EQUALS TO "90+"
+                     count = count + cases
+                   END IF
+
+            END IF
+         END FOR
+
+
+
+
+METHOD: naCases
+IMPORT: NONE
+EXPORT: NONE
+ALGORITHM:
+
+         pCount = 0
+         rCount = 0
+         sCount = 0
+         aCount = 0
+
+           FOR k = o TO n INC BY 1
+            province = covidCaseArray[k].getProvince()
+            region = covidCaseArray[k].getRegion()
+            sex = covidCaseArray[k].getSex()
+            age = covidCaseArray[k].getAgeGroup()
+            cases = covidCaseArray[k].getCases()
+             
+              IF province EQUALS TO "NA"
+                 pCount = pCount + cases
+              END IF
+
+              IF region EQUALS TO "NA"
+                 rCount = rCount + cases
+              END IF
+
+              IF sex EQUALS TO "NA"
+                 sCount = sCount + cases
+              END IF
+ 
+              IF age EQUALS TO "NA"
+                 aCount = aCount + cases
+              END IF
+           END FOR
+
+        PRINT "Total number of unknown province cases: " + pCount
+        PRINT "Total number of unknown region cases: " + rCount
+        PRINT "Total number of unknown gender cases: " + sCount
+        PRINT "Total number of unknown age group cases: " + aCount
+
+
+
+
+
+
+             
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	 
